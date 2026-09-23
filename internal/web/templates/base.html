@@ -1,0 +1,19 @@
+{{define "page_start"}}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Parts Inventory</title>
+  <link rel="stylesheet" href="{{.BasePath}}/static/style.css">
+  <script defer src="{{.BasePath}}/static/app.js"></script>
+</head>
+<body>
+  <main class="container">
+    <header><a class="brand" href="{{.BasePath}}/">Parts Inventory</a></header>
+{{end}}
+{{define "page_end"}}
+  </main>
+</body>
+</html>
+{{end}}

@@ -1,0 +1,33 @@
+{{define "part_form"}}
+{{template "page_start" .}}
+<h1>{{.Title}}</h1>
+{{if .Error}}<p class="error" role="alert">{{.Error}}</p>{{end}}
+<section class="symbols" aria-labelledby="symbols-title">
+  <strong id="symbols-title">Electronic symbols</strong>
+  <button type="button" data-copy-symbol="Ω" aria-label="Copy ohm symbol">Ω Ohm</button>
+  <button type="button" data-copy-symbol="µ" aria-label="Copy micro symbol">µ micro</button>
+  <button type="button" data-copy-symbol="±" aria-label="Copy plus or minus symbol">±</button>
+  <button type="button" data-copy-symbol="°" aria-label="Copy degree symbol">°</button>
+  <span class="symbol-status" aria-live="polite"></span>
+</section>
+<form class="part-form" method="post" action="{{.FormAction}}">
+  <label>Type<select name="type" required><option value="">Select type</option>{{range .Types}}<option value="{{.}}" {{if eq $.Part.Type .}}selected{{end}}>{{.}}</option>{{end}}</select></label>
+  <label>Value<input name="value" value="{{.Part.Value}}" required></label>
+  <label>Package<input name="package" value="{{.Part.Package}}"></label>
+  <label>Description<input name="description" value="{{.Part.Description}}"></label>
+  <label>MPN<input name="mpn" value="{{.Part.MPN}}"></label>
+  <label>Current quantity<input name="quantity" type="number" min="0" step="1" value="{{.Part.Quantity}}" required></label>
+  <div class="actions"><a href="{{.BasePath}}/">Cancel</a><button name="action" value="save" type="submit">Save Part</button></div>
+</form>
+{{if .IsEdit}}
+<section class="adjustment">
+  <h2>Adjust quantity</h2>
+  <p>Use this for a quick stock change. Direct editing above corrects the actual stock count.</p>
+  <form method="post" action="{{.FormAction}}" class="adjustment-form">
+    <label>Adjustment<input name="adjustment" type="number" min="0" step="1" value="{{.Adjustment}}" required></label>
+    <div class="actions"><button name="action" value="remove" type="submit">− Remove</button><button name="action" value="add" type="submit">+ Add</button></div>
+  </form>
+</section>
+{{end}}
+{{template "page_end" .}}
+{{end}}

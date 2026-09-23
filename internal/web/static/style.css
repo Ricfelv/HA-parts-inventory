@@ -1,0 +1,33 @@
+:root { color-scheme: light; font-family: system-ui, sans-serif; color: #1d2939; background: #f7f8fa; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+.container { max-width: 1200px; margin: 0 auto; padding: 1.25rem; }
+header { margin-bottom: 1.5rem; }
+.brand { color: #1d4ed8; font-size: 1.35rem; font-weight: 700; text-decoration: none; }
+.toolbar, .filters, .actions { display: flex; gap: .75rem; align-items: center; flex-wrap: wrap; }
+.toolbar { justify-content: space-between; margin-bottom: 1rem; }
+.search-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); }
+input, select, button, .button { font: inherit; padding: .45rem .6rem; border: 1px solid #aab3c2; border-radius: .25rem; }
+input[type="search"] { min-width: 17rem; }
+button, .button { background: #1d4ed8; border-color: #1d4ed8; color: #fff; cursor: pointer; text-decoration: none; }
+.checkbox { white-space: nowrap; }
+.table-wrap { overflow-x: auto; background: #fff; border: 1px solid #d7dce5; }
+table { border-collapse: collapse; width: 100%; }
+th, td { padding: .65rem .75rem; text-align: left; border-bottom: 1px solid #e5e7eb; vertical-align: top; }
+th { background: #edf2f7; white-space: nowrap; }
+th a { color: inherit; }
+tbody tr:nth-child(even) { background: #f8fafc; }
+.quantity { text-align: right; }
+.empty { color: #596579; }
+h1 { margin-top: 0; }
+.part-form { display: grid; gap: 1rem; max-width: 34rem; }
+.part-form label, .adjustment-form label { display: grid; gap: .35rem; font-weight: 600; }
+.part-form .actions { margin-top: .5rem; }
+.adjustment { border-top: 1px solid #d7dce5; margin-top: 2rem; max-width: 34rem; padding-top: 1rem; }
+.adjustment h2 { margin: 0; font-size: 1.1rem; }
+.adjustment-form { display: flex; gap: 1rem; align-items: end; flex-wrap: wrap; }
+.error { max-width: 34rem; padding: .75rem; border-left: 4px solid #b42318; background: #fef3f2; color: #7a271a; }
+.symbols { display: flex; max-width: 34rem; margin: 0 0 1rem; gap: .4rem; align-items: center; flex-wrap: wrap; }
+.symbols button { padding: .25rem .45rem; background: #fff; border-color: #aab3c2; color: #1d2939; }
+.symbol-status { color: #596579; font-size: .875rem; }
+@media (max-width: 600px) { input[type="search"] { min-width: 0; width: 100%; } .filters { width: 100%; } }

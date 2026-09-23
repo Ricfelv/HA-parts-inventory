@@ -1,0 +1,24 @@
+{{define "inventory"}}
+{{template "page_start" .}}
+<section class="toolbar">
+  <form class="filters" method="get" action="{{.BasePath}}/">
+    <label class="search-label" for="search">Search</label>
+    <input id="search" name="q" value="{{.Query}}" placeholder="Search..." type="search">
+    <input type="hidden" name="in_stock" value="0">
+    <label class="checkbox"><input type="checkbox" name="in_stock" value="1" {{if .InStockOnly}}checked{{end}}> In stock only</label>
+    <button type="submit">Filter</button>
+  </form>
+  <a class="button" href="{{.BasePath}}/parts/new">+ Add Part</a>
+</section>
+{{if .Parts}}
+<div class="table-wrap">
+<table>
+  <thead><tr>
+    <th><a href="{{sortURL . "type"}}">Type</a></th><th><a href="{{sortURL . "value"}}">Value</a></th><th><a href="{{sortURL . "package"}}">Package</a></th><th><a href="{{sortURL . "description"}}">Description</a></th><th><a href="{{sortURL . "mpn"}}">MPN</a></th><th class="quantity"><a href="{{sortURL . "quantity"}}">Quantity</a></th><th>Edit</th>
+  </tr></thead>
+  <tbody>{{range .Parts}}<tr><td>{{.Type}}</td><td>{{.Value}}</td><td>{{.Package}}</td><td>{{.Description}}</td><td>{{.MPN}}</td><td class="quantity">{{.Quantity}}</td><td><a href="{{$.BasePath}}/parts/{{.ID}}/edit">Edit</a></td></tr>{{end}}</tbody>
+</table>
+</div>
+{{else}}<p class="empty">No parts match the current filter.</p>{{end}}
+{{template "page_end" .}}
+{{end}}

@@ -1,0 +1,17 @@
+name: Parts Inventory
+version: "0.1.0"
+slug: parts_inventory
+description: Personal electronics parts inventory
+startup: services
+boot: auto
+arch:
+  - aarch64
+  - amd64
+  - armhf
+  - armv7
+  - i386
+ingress: true
+ingress_port: 8080
+panel_icon: mdi:chip
+init: false
+schema: {}
