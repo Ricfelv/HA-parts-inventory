@@ -11,9 +11,7 @@ ARG BUILD_ARCH
 LABEL io.hass.version="${BUILD_VERSION}" \
       io.hass.type="app" \
       io.hass.arch="${BUILD_ARCH}"
-RUN adduser -D -H -u 1000 appuser && mkdir -p /data && chown appuser:appuser /data
 COPY --from=build /out/parts-inventory /usr/local/bin/parts-inventory
-USER appuser
 ENV PARTS_LISTEN_ADDR=:8080
 ENV PARTS_DB_PATH=/data/parts.db
 EXPOSE 8080
