@@ -18,6 +18,12 @@ th { background: #edf2f7; white-space: nowrap; }
 th a { color: inherit; }
 tbody tr:nth-child(even) { background: #f8fafc; }
 .quantity { text-align: right; }
+.mpn-cell { display: flex; gap: .4rem; align-items: center; }
+.copy-button { display: inline-grid; place-items: center; padding: .2rem; border: 0; background: transparent; color: #475467; }
+.copy-button:hover, .copy-button:focus-visible { background: #dbeafe; color: #1d4ed8; }
+.copy-button svg { width: 1rem; height: 1rem; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2; }
+.copy-button.copied svg { display: none; }
+.copy-button.copied::after { content: "✓"; font-weight: 700; }
 .empty { color: #596579; }
 h1 { margin-top: 0; }
 .part-form { display: grid; gap: 1rem; max-width: 34rem; }

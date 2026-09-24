@@ -1,5 +1,5 @@
 name: Parts Inventory
-version: "0.1.0"
+version: "0.1.1"
 slug: parts_inventory
 description: Personal electronics parts inventory
 startup: services

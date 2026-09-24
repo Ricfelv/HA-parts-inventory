@@ -44,6 +44,9 @@ func TestCreateAndInventory(t *testing.T) {
 	if !strings.Contains(response.Body.String(), "10k") {
 		t.Fatal("inventory did not contain created part")
 	}
+	if !strings.Contains(response.Body.String(), `data-copy-mpn="RC0603"`) {
+		t.Fatal("inventory did not contain an MPN copy control")
+	}
 }
 
 func TestIngressPathsAreUsed(t *testing.T) {
